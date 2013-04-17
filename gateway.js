@@ -118,6 +118,10 @@ module.exports = function gateway(docroot, options) {
         exit = code
         done()
       })
+      .on('error', function(e){
+        exit = 1
+        done()
+      })
 
       child.stdout
         .on('end', function() {
